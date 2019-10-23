@@ -17,6 +17,7 @@
 		D1276CCE2357DB690061B775 /* CongressAppChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1276CCD2357DB690061B775 /* CongressAppChallengeUITests.swift */; };
 		D1276CDC2357E0A50061B775 /* ExtraCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1276CDB2357E0A50061B775 /* ExtraCode.swift */; };
 		D1276CDE2357ED770061B775 /* NewUserPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1276CDD2357ED770061B775 /* NewUserPage.swift */; };
+		D19ABD25235FE22E00859D18 /* Lists.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19ABD24235FE22E00859D18 /* Lists.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D1276CCF2357DB690061B775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1276CDB2357E0A50061B775 /* ExtraCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraCode.swift; sourceTree = "<group>"; };
 		D1276CDD2357ED770061B775 /* NewUserPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserPage.swift; sourceTree = "<group>"; };
+		D19ABD24235FE22E00859D18 /* Lists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lists.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				D1276CAB2357DB620061B775 /* AppDelegate.swift */,
 				D1276CAD2357DB620061B775 /* SceneDelegate.swift */,
 				D1276CAF2357DB620061B775 /* ViewController.swift */,
+				D19ABD24235FE22E00859D18 /* Lists.swift */,
 				D1276CDD2357ED770061B775 /* NewUserPage.swift */,
 				D1276CDB2357E0A50061B775 /* ExtraCode.swift */,
 				D1276CB12357DB620061B775 /* Main.storyboard */,
@@ -270,6 +273,7 @@
 				D1276CDC2357E0A50061B775 /* ExtraCode.swift in Sources */,
 				D1276CAC2357DB620061B775 /* AppDelegate.swift in Sources */,
 				D1276CAE2357DB620061B775 /* SceneDelegate.swift in Sources */,
+				D19ABD25235FE22E00859D18 /* Lists.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

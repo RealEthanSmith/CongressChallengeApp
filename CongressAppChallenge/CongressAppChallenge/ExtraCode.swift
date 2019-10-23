@@ -9,12 +9,19 @@
 import Foundation
 
 var UName = ""
-var UserID: Int = 0000
+var UserID: Int = 0001
 var UserPassword: String?
 
+var CurrentUName: String?
+var CurrentUID: Int?
+var CurrentUPass: String?
+var CurrentUserIsSuper = false
+
+//We will use this in another file to check if the user is logged in. We'll set the default to "false" just to be safe (we don't want other users accessing other people's content).
+var UserIsLoggedIn = false
 
 
-
+//Defining parameters to be used in our User Array
 struct UserItems{
     
     var UserName:String?
@@ -25,7 +32,7 @@ struct UserItems{
 
 
 
-
+//Array that defines our list of Users. As we update this by adding new users throught the app, the code won't update so we'll build another way to access our User List. Notice how the parameters defined above are used here when we call our Array...
 var UserList = [
-    UserItems(UserName: "Emmett", UID: 0001, Pass: "123456")
+    UserItems(UserName: "FirstUser", UID: 0001, Pass: "UserNumberOne")
 ]
