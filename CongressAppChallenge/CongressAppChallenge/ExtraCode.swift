@@ -21,7 +21,7 @@ var CurrentUserIsSuper = false
 var UserIsLoggedIn = false
 
 
-//Defining parameters to be used in our User Array
+//Defining parameters to be used in our Array
 struct UserItems{
     
     var UserName:String?
@@ -30,9 +30,21 @@ struct UserItems{
     
 }
 
+struct ReminderLists {
+    var ListName:String?
+    var UID:Int?
+}
+
 
 
 //Array that defines our list of Users. As we update this by adding new users throught the app, the code won't update so we'll build another way to access our User List. Notice how the parameters defined above are used here when we call our Array...
 var UserList = [
     UserItems(UserName: "FirstUser", UID: 0001, Pass: "UserNumberOne")
+]
+
+
+var ReminderList = [
+
+    ReminderLists(ListName: "Name", UID: 0001)
+    
 ]

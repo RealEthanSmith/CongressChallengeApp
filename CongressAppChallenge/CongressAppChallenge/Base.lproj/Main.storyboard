@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8nJ-Du-tnE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -7,6 +7,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Bn7-QS-2cu">
+            <objects>
+                <navigationController id="8nJ-Du-tnE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sgl-Oi-Ixj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Blt-vq-l2F"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UMP-QX-Cib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-632" y="52"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -16,13 +32,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Creation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsU-Rg-rPT">
-                                <rect key="frame" x="20" y="113" width="264.5" height="42"/>
+                                <rect key="frame" x="20" y="157" width="264.5" height="42"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="bqV-lY-Co2">
-                                <rect key="frame" x="20" y="192" width="119" height="128"/>
+                                <rect key="frame" x="20" y="236" width="119" height="128"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="cq1-Ux-QbL">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="128"/>
@@ -82,25 +98,25 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ony-3n-nUU">
-                                <rect key="frame" x="10" y="388" width="67" height="30"/>
+                                <rect key="frame" x="10" y="432" width="67" height="30"/>
                                 <state key="normal" title="New User"/>
                                 <connections>
                                     <action selector="NewUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ceF-QZ-Euh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vK0-R8-05F">
-                                <rect key="frame" x="10" y="350" width="38" height="30"/>
+                                <rect key="frame" x="10" y="394" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="LoginUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZrE-jA-a2x"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvh-wU-HvD">
-                                <rect key="frame" x="10" y="426" width="74" height="30"/>
+                                <rect key="frame" x="10" y="470" width="74" height="30"/>
                                 <state key="normal" title="Go to Lists"/>
                                 <connections>
                                     <action selector="GoToLists:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rG3-og-Emf"/>
-                                    <segue destination="FEr-Ay-EN1" kind="show" identifier="GoToLists" id="4Sd-WU-N5c"/>
+                                    <segue destination="FEr-Ay-EN1" kind="show" identifier="GoToLists" id="oQ1-98-3g2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -119,6 +135,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="04f-BD-AQ8"/>
                     <connections>
                         <outlet property="Name" destination="eeN-Wx-Prz" id="FN8-5p-N7M"/>
                         <outlet property="UID" destination="94Z-79-7Qe" id="koq-z4-KJz"/>
@@ -132,24 +149,24 @@
         <!--New User Page-->
         <scene sceneID="Fqq-yO-Ij6">
             <objects>
-                <viewController id="7WQ-Yz-h67" customClass="NewUserPage" customModule="CongressAppChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="pageSheet" id="7WQ-Yz-h67" customClass="NewUserPage" customModule="CongressAppChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sTB-Jg-Rxk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAx-D8-ZZg">
-                                <rect key="frame" x="20" y="53" width="163" height="42"/>
+                                <rect key="frame" x="20" y="141" width="163" height="42"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JGi-VA-fqg">
-                                <rect key="frame" x="20" y="120" width="374" height="34"/>
+                                <rect key="frame" x="20" y="208" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="59U-ab-2VB">
-                                <rect key="frame" x="20" y="162" width="374" height="34"/>
+                                <rect key="frame" x="20" y="250" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -163,7 +180,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHD-7u-IIr">
-                                <rect key="frame" x="20" y="204" width="82" height="30"/>
+                                <rect key="frame" x="20" y="292" width="82" height="30"/>
                                 <state key="normal" title="Create User"/>
                                 <connections>
                                     <action selector="NewUserPressed:" destination="7WQ-Yz-h67" eventType="touchUpInside" id="nYI-T3-Iri"/>
@@ -202,7 +219,7 @@
         <!--Lists-->
         <scene sceneID="u1i-aC-6Rx">
             <objects>
-                <tableViewController modalPresentationStyle="fullScreen" id="FEr-Ay-EN1" customClass="Lists" customModule="CongressAppChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="FEr-Ay-EN1" customClass="Lists" customModule="CongressAppChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="p7e-6o-AgX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

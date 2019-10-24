@@ -8,18 +8,17 @@
 
 import UIKit
 
-class Lists: UITableViewController {
+class Lists: UITableViewController{
  
     var superUser = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
-        if CurrentUserIsSuper{
-            superUser = true
-            print("About to run list code...")
-            CurrentUserIsSuper = false
-            tableView.reloadData()
-        }
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        CurrentUID = 0001
+            
     }
 
     // MARK: - Table view data source
@@ -31,23 +30,40 @@ class Lists: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let NumberOfRows:Int?
-        if superUser{
-            NumberOfRows = UserList.count
-            print("All Good Here")
-            return NumberOfRows!
-        }else{
-            return 0
-        }
+        
+        NumberOfRows = ListCount()
+        
+        return NumberOfRows!
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
         
-        cell.textLabel?.text = UserList[indexPath.row].UserName
-        cell.detailTextLabel?.text = "\(UserList[indexPath.row].UID)"
         
+        let CurrentID = CurrentUID
+        let ListsFiltered = ReminderList.filter{$0.UID == CurrentID}
+        let ListNames:String = ListsFiltered[indexPath.row].ListName!
+        print(ListNames)
+
+        cell.textLabel?.text = "hello"
+        print("hello")
         return cell
         
     }
+    
+    
+    
+    
+    func ListCount() -> Int{
+        
+        let CurrentID = CurrentUID
+        
+        let ListsFiltered = ReminderList.filter{$0.UID == CurrentID}
+        
+        return ListsFiltered.count
+    }
+    
+
+
 
 }
