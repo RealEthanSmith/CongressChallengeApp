@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 var NewUserCreation = true
 
 class ViewController: UIViewController {
@@ -14,25 +15,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Sets variables created in the "Extra Code" page to equal Array items...
-        //We do this here because by the time the user reaches this page, we will definatley know who they are in our system. We will write code to catch possible errors later on...
-        UName = UserList[0].UserName!
-        UserID = UserList[0].UID!
-        UserPassword = UserList[0].Pass!
-        
+        UName = ""
+        UserID = ""
         //Sets the name label to include the current user's name
-        Name.text = "Name (\(UName)):"
-        UID.text = "User ID (\(UserID))"
+        Name.text = "Name (None):"
+        UID.text = "User ID (None)"
+        
+        if Auth.auth().currentUser?.email != nil{
+            UserIsLoggedIn = true
+            Name.text = "Hey"
+        } else {
+            print("Nope")
+        }
         
         //Checking to see if the user is logged in. By the way, the if statement defaults to true if we don't fill out the rest (if UserLoggedIn = true...)
         if UserIsLoggedIn {
             //Running the above code again to update our on-screen data
+            UName = (Auth.auth().currentUser?.email)!
+            UserID = String(Auth.auth().currentUser!.uid)
+            
             Name.text = "Name (\(UName)):"
             UID.text = "User ID (\(UserID))"
             
-            UName = UserList[0].UserName!
-            UserID = UserList[0].UID!
-            UserPassword = UserList[0].Pass!
             
             print("Logged In. Let's go on...")
             
@@ -42,6 +46,43 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if Auth.auth().currentUser?.email != nil{
+            UserIsLoggedIn = true
+            Name.text = "Hey"
+        } else {
+            print("Nope")
+        }
+        
+        //Checking to see if the user is logged in. By the way, the if statement defaults to true if we don't fill out the rest (if UserLoggedIn = true...)
+        if UserIsLoggedIn {
+            //Running the above code again to update our on-screen data
+            UName = (Auth.auth().currentUser?.email)!
+            UserID = String(Auth.auth().currentUser!.uid)
+            
+            Name.text = "Name (\(UName)):"
+            UID.text = "User ID (\(UserID))"
+            
+            
+            print("Logged In. Let's go on...")
+            
+        }else if UserIsLoggedIn == false{
+            
+            print("Continue with our code below")
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     //With the next two lines (@IBOutlet) we are simply connecting our User Interface elements to our code. This does nothing in particular besides let us access UI elements throught the code later on
     @IBOutlet weak var Name: UILabel!
@@ -65,7 +106,7 @@ class ViewController: UIViewController {
     @IBAction func NewUser(_ sender: Any) {
         //Takes the current user to the "New User" page
         NewUserCreation = true
-        performSegue(withIdentifier: "NewUser", sender: self)
+        performSegue(withIdentifier: "SignIn", sender: self)
     }
     
     @IBAction func GoToLists(_ sender: Any) {

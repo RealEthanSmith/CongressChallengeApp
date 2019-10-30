@@ -1,0 +1,6 @@
+framework module Pods_CongressAppChallenge {
+  umbrella header "Pods-CongressAppChallenge-umbrella.h"
+
+  export *
+  module * { export * }
+}

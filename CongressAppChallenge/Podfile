@@ -1,0 +1,28 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'CongressAppChallenge' do
+  use_frameworks!
+
+  # Pods for CongressAppChallenge
+  pod 'Firebase'
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
+  pod 'Pushbots'
+  
+  #Extra for PushBots
+target 'PushbotsNSExtension' do
+  pod 'Pushbots', '>= 2.4.4'
+end
+    
+  target 'CongressAppChallengeTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'CongressAppChallengeUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

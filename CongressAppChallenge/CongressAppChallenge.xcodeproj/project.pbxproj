@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A50608243ECF450BB5D16AE /* Pods_CongressAppChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B7C4F35A697B2FCE585FDA1 /* Pods_CongressAppChallenge.framework */; };
+		2B51C039B4FF309F96386BD5 /* Pods_CongressAppChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B9A2864039BD663A5AF4D1 /* Pods_CongressAppChallengeUITests.framework */; };
+		5F68305365224E868E7931AB /* Pods_CongressAppChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF4E06F106EF54F03E9C21D9 /* Pods_CongressAppChallengeTests.framework */; };
 		D1276CAC2357DB620061B775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1276CAB2357DB620061B775 /* AppDelegate.swift */; };
 		D1276CAE2357DB620061B775 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1276CAD2357DB620061B775 /* SceneDelegate.swift */; };
 		D1276CB02357DB620061B775 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1276CAF2357DB620061B775 /* ViewController.swift */; };
@@ -16,8 +19,11 @@
 		D1276CC32357DB690061B775 /* CongressAppChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1276CC22357DB690061B775 /* CongressAppChallengeTests.swift */; };
 		D1276CCE2357DB690061B775 /* CongressAppChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1276CCD2357DB690061B775 /* CongressAppChallengeUITests.swift */; };
 		D1276CDC2357E0A50061B775 /* ExtraCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1276CDB2357E0A50061B775 /* ExtraCode.swift */; };
-		D1276CDE2357ED770061B775 /* NewUserPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1276CDD2357ED770061B775 /* NewUserPage.swift */; };
-		D19ABD25235FE22E00859D18 /* Lists.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19ABD24235FE22E00859D18 /* Lists.swift */; };
+		D12D3BB52362944E00B93C62 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = D12D3BB42362944E00B93C62 /* NotificationService.m */; };
+		D12D3BB92362944E00B93C62 /* PushbotsNSExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D12D3BB12362944E00B93C62 /* PushbotsNSExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D19ABD272362813B00859D18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D19ABD262362813B00859D18 /* GoogleService-Info.plist */; };
+		D1C87985236551DE0034332F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C87984236551DE0034332F /* SignInViewController.swift */; };
+		ED31DFD6A48718C941B9CF39 /* Pods_CongressAppChallenge_PushbotsNSExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8614B2D47BCFEFD19D0B9FD /* Pods_CongressAppChallenge_PushbotsNSExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +41,39 @@
 			remoteGlobalIDString = D1276CA72357DB620061B775;
 			remoteInfo = CongressAppChallenge;
 		};
+		D12D3BB72362944E00B93C62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1276CA02357DB620061B775 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D12D3BB02362944E00B93C62;
+			remoteInfo = PushbotsNSExtension;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D12D3B7B2362923300B93C62 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D12D3BB92362944E00B93C62 /* PushbotsNSExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0DB04672F62429127F72BD69 /* Pods-CongressAppChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CongressAppChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CongressAppChallenge/Pods-CongressAppChallenge.debug.xcconfig"; sourceTree = "<group>"; };
+		33944C99BA4CEC67903D0F23 /* Pods-CongressAppChallenge-PushbotsNSExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CongressAppChallenge-PushbotsNSExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CongressAppChallenge-PushbotsNSExtension/Pods-CongressAppChallenge-PushbotsNSExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		4DE5513AB92B92F45A6276E7 /* Pods-CongressAppChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CongressAppChallengeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CongressAppChallengeTests/Pods-CongressAppChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7428F7571698938B87066B16 /* Pods-CongressAppChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CongressAppChallengeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CongressAppChallengeUITests/Pods-CongressAppChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		99B9A2864039BD663A5AF4D1 /* Pods_CongressAppChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CongressAppChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99E381CB90F96135DC9CCA72 /* Pods-CongressAppChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CongressAppChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-CongressAppChallenge/Pods-CongressAppChallenge.release.xcconfig"; sourceTree = "<group>"; };
+		9B7C4F35A697B2FCE585FDA1 /* Pods_CongressAppChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CongressAppChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD48FC3B92EC156E27DFF785 /* Pods-CongressAppChallenge-PushbotsNSExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CongressAppChallenge-PushbotsNSExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-CongressAppChallenge-PushbotsNSExtension/Pods-CongressAppChallenge-PushbotsNSExtension.release.xcconfig"; sourceTree = "<group>"; };
+		D101365B2362909F00BBAE7C /* CongressAppChallenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CongressAppChallenge.entitlements; sourceTree = "<group>"; };
 		D1276CA82357DB620061B775 /* CongressAppChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CongressAppChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1276CAB2357DB620061B775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1276CAD2357DB620061B775 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,8 +89,19 @@
 		D1276CCD2357DB690061B775 /* CongressAppChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongressAppChallengeUITests.swift; sourceTree = "<group>"; };
 		D1276CCF2357DB690061B775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1276CDB2357E0A50061B775 /* ExtraCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraCode.swift; sourceTree = "<group>"; };
-		D1276CDD2357ED770061B775 /* NewUserPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserPage.swift; sourceTree = "<group>"; };
-		D19ABD24235FE22E00859D18 /* Lists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lists.swift; sourceTree = "<group>"; };
+		D12D3BA3236293EE00B93C62 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		D12D3BA4236293EE00B93C62 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		D12D3BA6236293EE00B93C62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D12D3BB12362944E00B93C62 /* PushbotsNSExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PushbotsNSExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D12D3BB32362944E00B93C62 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		D12D3BB42362944E00B93C62 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		D12D3BB62362944E00B93C62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D19ABD262362813B00859D18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D1C87984236551DE0034332F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		DF4E06F106EF54F03E9C21D9 /* Pods_CongressAppChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CongressAppChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8614B2D47BCFEFD19D0B9FD /* Pods_CongressAppChallenge_PushbotsNSExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CongressAppChallenge_PushbotsNSExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81146204B4CD709BD962715 /* Pods-CongressAppChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CongressAppChallengeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CongressAppChallengeTests/Pods-CongressAppChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
+		FA727ACE4133238A72B8AF83 /* Pods-CongressAppChallengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CongressAppChallengeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CongressAppChallengeUITests/Pods-CongressAppChallengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A50608243ECF450BB5D16AE /* Pods_CongressAppChallenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F68305365224E868E7931AB /* Pods_CongressAppChallengeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,19 +125,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B51C039B4FF309F96386BD5 /* Pods_CongressAppChallengeUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D12D3BAE2362944E00B93C62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED31DFD6A48718C941B9CF39 /* Pods_CongressAppChallenge_PushbotsNSExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E60190638552754EFF678F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B7C4F35A697B2FCE585FDA1 /* Pods_CongressAppChallenge.framework */,
+				DF4E06F106EF54F03E9C21D9 /* Pods_CongressAppChallengeTests.framework */,
+				99B9A2864039BD663A5AF4D1 /* Pods_CongressAppChallengeUITests.framework */,
+				E8614B2D47BCFEFD19D0B9FD /* Pods_CongressAppChallenge_PushbotsNSExtension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE6D44BA6D10972104029ED6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0DB04672F62429127F72BD69 /* Pods-CongressAppChallenge.debug.xcconfig */,
+				99E381CB90F96135DC9CCA72 /* Pods-CongressAppChallenge.release.xcconfig */,
+				4DE5513AB92B92F45A6276E7 /* Pods-CongressAppChallengeTests.debug.xcconfig */,
+				F81146204B4CD709BD962715 /* Pods-CongressAppChallengeTests.release.xcconfig */,
+				FA727ACE4133238A72B8AF83 /* Pods-CongressAppChallengeUITests.debug.xcconfig */,
+				7428F7571698938B87066B16 /* Pods-CongressAppChallengeUITests.release.xcconfig */,
+				33944C99BA4CEC67903D0F23 /* Pods-CongressAppChallenge-PushbotsNSExtension.debug.xcconfig */,
+				AD48FC3B92EC156E27DFF785 /* Pods-CongressAppChallenge-PushbotsNSExtension.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D1276C9F2357DB620061B775 = {
 			isa = PBXGroup;
 			children = (
 				D1276CAA2357DB620061B775 /* CongressAppChallenge */,
 				D1276CC12357DB690061B775 /* CongressAppChallengeTests */,
 				D1276CCC2357DB690061B775 /* CongressAppChallengeUITests */,
+				D12D3BA2236293EE00B93C62 /* PushbotsNSExtension */,
+				D12D3BB22362944E00B93C62 /* PushbotsNSExtension */,
 				D1276CA92357DB620061B775 /* Products */,
+				CE6D44BA6D10972104029ED6 /* Pods */,
+				9E60190638552754EFF678F8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +186,7 @@
 				D1276CA82357DB620061B775 /* CongressAppChallenge.app */,
 				D1276CBE2357DB690061B775 /* CongressAppChallengeTests.xctest */,
 				D1276CC92357DB690061B775 /* CongressAppChallengeUITests.xctest */,
+				D12D3BB12362944E00B93C62 /* PushbotsNSExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,15 +194,16 @@
 		D1276CAA2357DB620061B775 /* CongressAppChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				D101365B2362909F00BBAE7C /* CongressAppChallenge.entitlements */,
 				D1276CAB2357DB620061B775 /* AppDelegate.swift */,
 				D1276CAD2357DB620061B775 /* SceneDelegate.swift */,
 				D1276CAF2357DB620061B775 /* ViewController.swift */,
-				D19ABD24235FE22E00859D18 /* Lists.swift */,
-				D1276CDD2357ED770061B775 /* NewUserPage.swift */,
+				D1C87984236551DE0034332F /* SignInViewController.swift */,
 				D1276CDB2357E0A50061B775 /* ExtraCode.swift */,
 				D1276CB12357DB620061B775 /* Main.storyboard */,
 				D1276CB42357DB690061B775 /* Assets.xcassets */,
 				D1276CB62357DB690061B775 /* LaunchScreen.storyboard */,
+				D19ABD262362813B00859D18 /* GoogleService-Info.plist */,
 				D1276CB92357DB690061B775 /* Info.plist */,
 			);
 			path = CongressAppChallenge;
@@ -137,6 +227,26 @@
 			path = CongressAppChallengeUITests;
 			sourceTree = "<group>";
 		};
+		D12D3BA2236293EE00B93C62 /* PushbotsNSExtension */ = {
+			isa = PBXGroup;
+			children = (
+				D12D3BA3236293EE00B93C62 /* NotificationService.h */,
+				D12D3BA4236293EE00B93C62 /* NotificationService.m */,
+				D12D3BA6236293EE00B93C62 /* Info.plist */,
+			);
+			path = PushbotsNSExtension;
+			sourceTree = "<group>";
+		};
+		D12D3BB22362944E00B93C62 /* PushbotsNSExtension */ = {
+			isa = PBXGroup;
+			children = (
+				D12D3BB32362944E00B93C62 /* NotificationService.h */,
+				D12D3BB42362944E00B93C62 /* NotificationService.m */,
+				D12D3BB62362944E00B93C62 /* Info.plist */,
+			);
+			path = PushbotsNSExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,13 +254,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1276CD22357DB690061B775 /* Build configuration list for PBXNativeTarget "CongressAppChallenge" */;
 			buildPhases = (
+				B552DF5BFEF8173A03CD45C9 /* [CP] Check Pods Manifest.lock */,
 				D1276CA42357DB620061B775 /* Sources */,
 				D1276CA52357DB620061B775 /* Frameworks */,
 				D1276CA62357DB620061B775 /* Resources */,
+				37A778ED801EF80EDFA77A24 /* [CP] Embed Pods Frameworks */,
+				D12D3B7B2362923300B93C62 /* Embed App Extensions */,
+				0D8F483C9C7BCB7AC7A0DEDB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D12D3BB82362944E00B93C62 /* PBXTargetDependency */,
 			);
 			name = CongressAppChallenge;
 			productName = CongressAppChallenge;
@@ -161,6 +276,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1276CD52357DB690061B775 /* Build configuration list for PBXNativeTarget "CongressAppChallengeTests" */;
 			buildPhases = (
+				03688EFA827CB2DDEE42FC51 /* [CP] Check Pods Manifest.lock */,
 				D1276CBA2357DB690061B775 /* Sources */,
 				D1276CBB2357DB690061B775 /* Frameworks */,
 				D1276CBC2357DB690061B775 /* Resources */,
@@ -179,6 +295,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1276CD82357DB690061B775 /* Build configuration list for PBXNativeTarget "CongressAppChallengeUITests" */;
 			buildPhases = (
+				C4243B9533840438AF4D30EB /* [CP] Check Pods Manifest.lock */,
 				D1276CC52357DB690061B775 /* Sources */,
 				D1276CC62357DB690061B775 /* Frameworks */,
 				D1276CC72357DB690061B775 /* Resources */,
@@ -192,6 +309,25 @@
 			productName = CongressAppChallengeUITests;
 			productReference = D1276CC92357DB690061B775 /* CongressAppChallengeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		D12D3BB02362944E00B93C62 /* PushbotsNSExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D12D3BBA2362944E00B93C62 /* Build configuration list for PBXNativeTarget "PushbotsNSExtension" */;
+			buildPhases = (
+				6EB843BA18C75B4780555801 /* [CP] Check Pods Manifest.lock */,
+				D12D3BAD2362944E00B93C62 /* Sources */,
+				D12D3BAE2362944E00B93C62 /* Frameworks */,
+				D12D3BAF2362944E00B93C62 /* Resources */,
+				2C4507CD312B664E18890AA2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PushbotsNSExtension;
+			productName = PushbotsNSExtension;
+			productReference = D12D3BB12362944E00B93C62 /* PushbotsNSExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -214,6 +350,9 @@
 						CreatedOnToolsVersion = 11.0;
 						TestTargetID = D1276CA72357DB620061B775;
 					};
+					D12D3BB02362944E00B93C62 = {
+						CreatedOnToolsVersion = 11.0;
+					};
 				};
 			};
 			buildConfigurationList = D1276CA32357DB620061B775 /* Build configuration list for PBXProject "CongressAppChallenge" */;
@@ -232,6 +371,7 @@
 				D1276CA72357DB620061B775 /* CongressAppChallenge */,
 				D1276CBD2357DB690061B775 /* CongressAppChallengeTests */,
 				D1276CC82357DB690061B775 /* CongressAppChallengeUITests */,
+				D12D3BB02362944E00B93C62 /* PushbotsNSExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -242,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1276CB82357DB690061B775 /* LaunchScreen.storyboard in Resources */,
+				D19ABD272362813B00859D18 /* GoogleService-Info.plist in Resources */,
 				D1276CB52357DB690061B775 /* Assets.xcassets in Resources */,
 				D1276CB32357DB620061B775 /* Main.storyboard in Resources */,
 			);
@@ -261,7 +402,179 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D12D3BAF2362944E00B93C62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03688EFA827CB2DDEE42FC51 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CongressAppChallengeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0D8F483C9C7BCB7AC7A0DEDB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CongressAppChallenge/Pods-CongressAppChallenge-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/Pushbots/Pushbots.framework/CloseButton.png",
+				"${PODS_ROOT}/Pushbots/Pushbots.framework/CloseButton@2x.png",
+				"${PODS_ROOT}/Pushbots/Pushbots.framework/CloseButton@3x.png",
+				"${PODS_ROOT}/Pushbots/Pushbots.framework/inAppMessageLayout~ipad.xib",
+				"${PODS_ROOT}/Pushbots/Pushbots.framework/inAppMessageLayout~landscape.xib",
+				"${PODS_ROOT}/Pushbots/Pushbots.framework/inAppMessageLayout~portrait.xib",
+				"${PODS_ROOT}/Pushbots/Pushbots.framework/placeholder-image.png",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CloseButton.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CloseButton@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CloseButton@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/inAppMessageLayout~ipad.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/inAppMessageLayout~landscape.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/inAppMessageLayout~portrait.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/placeholder-image.png",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CongressAppChallenge/Pods-CongressAppChallenge-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C4507CD312B664E18890AA2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CongressAppChallenge-PushbotsNSExtension/Pods-CongressAppChallenge-PushbotsNSExtension-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/Pushbots/Pushbots.framework/CloseButton.png",
+				"${PODS_ROOT}/Pushbots/Pushbots.framework/CloseButton@2x.png",
+				"${PODS_ROOT}/Pushbots/Pushbots.framework/CloseButton@3x.png",
+				"${PODS_ROOT}/Pushbots/Pushbots.framework/inAppMessageLayout~ipad.xib",
+				"${PODS_ROOT}/Pushbots/Pushbots.framework/inAppMessageLayout~landscape.xib",
+				"${PODS_ROOT}/Pushbots/Pushbots.framework/inAppMessageLayout~portrait.xib",
+				"${PODS_ROOT}/Pushbots/Pushbots.framework/placeholder-image.png",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CloseButton.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CloseButton@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CloseButton@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/inAppMessageLayout~ipad.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/inAppMessageLayout~landscape.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/inAppMessageLayout~portrait.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/placeholder-image.png",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CongressAppChallenge-PushbotsNSExtension/Pods-CongressAppChallenge-PushbotsNSExtension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		37A778ED801EF80EDFA77A24 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CongressAppChallenge/Pods-CongressAppChallenge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CongressAppChallenge/Pods-CongressAppChallenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6EB843BA18C75B4780555801 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CongressAppChallenge-PushbotsNSExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B552DF5BFEF8173A03CD45C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CongressAppChallenge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4243B9533840438AF4D30EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CongressAppChallengeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D1276CA42357DB620061B775 /* Sources */ = {
@@ -269,11 +582,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1276CB02357DB620061B775 /* ViewController.swift in Sources */,
-				D1276CDE2357ED770061B775 /* NewUserPage.swift in Sources */,
 				D1276CDC2357E0A50061B775 /* ExtraCode.swift in Sources */,
 				D1276CAC2357DB620061B775 /* AppDelegate.swift in Sources */,
+				D1C87985236551DE0034332F /* SignInViewController.swift in Sources */,
 				D1276CAE2357DB620061B775 /* SceneDelegate.swift in Sources */,
-				D19ABD25235FE22E00859D18 /* Lists.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +605,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D12D3BAD2362944E00B93C62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D12D3BB52362944E00B93C62 /* NotificationService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -305,6 +625,11 @@
 			isa = PBXTargetDependency;
 			target = D1276CA72357DB620061B775 /* CongressAppChallenge */;
 			targetProxy = D1276CCA2357DB690061B775 /* PBXContainerItemProxy */;
+		};
+		D12D3BB82362944E00B93C62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D12D3BB02362944E00B93C62 /* PushbotsNSExtension */;
+			targetProxy = D12D3BB72362944E00B93C62 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -444,8 +769,11 @@
 		};
 		D1276CD32357DB690061B775 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DB04672F62429127F72BD69 /* Pods-CongressAppChallenge.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CongressAppChallenge/CongressAppChallenge.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M9D5379H93;
@@ -463,8 +791,11 @@
 		};
 		D1276CD42357DB690061B775 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99E381CB90F96135DC9CCA72 /* Pods-CongressAppChallenge.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CongressAppChallenge/CongressAppChallenge.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M9D5379H93;
@@ -482,6 +813,7 @@
 		};
 		D1276CD62357DB690061B775 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DE5513AB92B92F45A6276E7 /* Pods-CongressAppChallengeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -504,6 +836,7 @@
 		};
 		D1276CD72357DB690061B775 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F81146204B4CD709BD962715 /* Pods-CongressAppChallengeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -526,6 +859,7 @@
 		};
 		D1276CD92357DB690061B775 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA727ACE4133238A72B8AF83 /* Pods-CongressAppChallengeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -546,6 +880,7 @@
 		};
 		D1276CDA2357DB690061B775 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7428F7571698938B87066B16 /* Pods-CongressAppChallengeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -561,6 +896,46 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = CongressAppChallenge;
+			};
+			name = Release;
+		};
+		D12D3BBB2362944E00B93C62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33944C99BA4CEC67903D0F23 /* Pods-CongressAppChallenge-PushbotsNSExtension.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M9D5379H93;
+				INFOPLIST_FILE = PushbotsNSExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.onpointech.CongressAppChallenge.PushbotsNSExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D12D3BBC2362944E00B93C62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD48FC3B92EC156E27DFF785 /* Pods-CongressAppChallenge-PushbotsNSExtension.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M9D5379H93;
+				INFOPLIST_FILE = PushbotsNSExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.onpointech.CongressAppChallenge.PushbotsNSExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -599,6 +974,15 @@
 			buildConfigurations = (
 				D1276CD92357DB690061B775 /* Debug */,
 				D1276CDA2357DB690061B775 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D12D3BBA2362944E00B93C62 /* Build configuration list for PBXNativeTarget "PushbotsNSExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D12D3BBB2362944E00B93C62 /* Debug */,
+				D12D3BBC2362944E00B93C62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
