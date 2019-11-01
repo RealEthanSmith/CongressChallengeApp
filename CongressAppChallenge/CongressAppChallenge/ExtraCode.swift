@@ -26,6 +26,14 @@ struct UserItems{
     
 }
 
+struct Items {
+    
+    var ItemName:String?
+    var ItemSubtitle:String?
+    var UID:Int?
+    
+}
+
 struct ReminderLists {
     var ListName:String?
     var UID:Int?
@@ -39,4 +47,9 @@ var ReminderList = [
 
     ReminderLists(ListName: "Name", UID: 0001)
     
+]
+
+var UserList = [
+
+    Items(ItemName: "Donate to TeamTrees.org", ItemSubtitle: "donate", UID: 0001)
 ]

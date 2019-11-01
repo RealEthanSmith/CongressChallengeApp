@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '13.0'
 
 target 'CongressAppChallenge' do
   use_frameworks!
@@ -7,7 +7,12 @@ target 'CongressAppChallenge' do
   # Pods for CongressAppChallenge
   pod 'Firebase'
   pod 'Firebase/Auth'
-  pod 'GoogleSignIn'
+  pod 'FirebaseUI'
+  
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Google'
+  pod 'FirebaseUI/Phone'
+
   pod 'Pushbots'
   
   #Extra for PushBots

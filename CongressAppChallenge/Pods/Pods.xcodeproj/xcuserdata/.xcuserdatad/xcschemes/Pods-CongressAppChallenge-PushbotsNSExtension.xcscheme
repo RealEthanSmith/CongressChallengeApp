@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8D2EC363D22DCAAFED5C3E92502B4FC7"
+               BlueprintIdentifier = "98C5F9CF3558E56CAC6FA3BC59C1BE4C"
                BlueprintName = "Pods-CongressAppChallenge-PushbotsNSExtension"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "Pods-CongressAppChallenge-PushbotsNSExtension.framework">

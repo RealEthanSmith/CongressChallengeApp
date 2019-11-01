@@ -8,9 +8,11 @@
 
 import UIKit
 import Firebase
+import FirebaseUI
+import FirebaseAuth
 var NewUserCreation = true
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FUIAuthDelegate, AuthUIDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +20,8 @@ class ViewController: UIViewController {
         UName = ""
         UserID = ""
         //Sets the name label to include the current user's name
-        Name.text = "Name (None):"
-        UID.text = "User ID (None)"
+        Name.text = "Name: None"
+        UID.text = "User ID: None"
         
         if Auth.auth().currentUser?.email != nil{
             UserIsLoggedIn = true
@@ -34,8 +36,8 @@ class ViewController: UIViewController {
             UName = (Auth.auth().currentUser?.email)!
             UserID = String(Auth.auth().currentUser!.uid)
             
-            Name.text = "Name (\(UName)):"
-            UID.text = "User ID (\(UserID))"
+            Name.text = "Email: \(UName!)"
+            UID.text = "User ID: \(UserID!)"
             
             
             print("Logged In. Let's go on...")
@@ -61,8 +63,8 @@ class ViewController: UIViewController {
             UName = (Auth.auth().currentUser?.email)!
             UserID = String(Auth.auth().currentUser!.uid)
             
-            Name.text = "Name (\(UName)):"
-            UID.text = "User ID (\(UserID))"
+            Name.text = "Email: \(UName!)"
+            UID.text = "User ID: \(UserID!)"
             
             
             print("Logged In. Let's go on...")
@@ -89,31 +91,99 @@ class ViewController: UIViewController {
     @IBOutlet weak var UID: UILabel!
     
     //Each @IBAction is a method which is called when you press the corresponding buttons
-    @IBAction func nameEdit(_ sender: Any) {
-    }
-    
-    @IBAction func UIDEdit(_ sender: Any) {
-    }
-    
-    @IBAction func PassEdit(_ sender: Any) {
-    }
-    
-    @IBAction func LoginUser(_ sender: Any) {
-        NewUserCreation = false
-        performSegue(withIdentifier: "NewUser", sender: self)
-    }
-    
+
     @IBAction func NewUser(_ sender: Any) {
         //Takes the current user to the "New User" page
         NewUserCreation = true
-        performSegue(withIdentifier: "SignIn", sender: self)
+        //performSegue(withIdentifier: "SignIn", sender: self)
+        present(SetupAuthUI(), animated: true, completion: nil)
+        refreshVariables()
+        func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+          print("Oh No")
+        }
     }
     
     @IBAction func GoToLists(_ sender: Any) {
         NewUserCreation = true
         performSegue(withIdentifier: "GoToLists", sender: self)
     }
+
+    @IBAction func SignOutUser(_ sender: Any) {
+        //Resetting AuthUI and its properties
+        let authUI = FUIAuth.defaultAuthUI()
+        authUI!.delegate = self
+        let providers: [FUIAuthProvider] = [
+          FUIGoogleAuth(),
+          FUIEmailAuth(),
+          /*FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),*/
+        ]
+        authUI!.providers = providers
+
+        //Signing out of everything...
+        do {
+            try authUI!.signOut()
+            ShowSignedOut()
+        } catch {
+            print("Uh-Oh")
+        }
+    }
     
+    @IBAction func RefreshView(_ sender: Any) {
+        refreshVariables()
+    }
+    
+    
+    
+    
+    
+    
+    
+    func SetupAuthUI() -> UINavigationController{
+        let authUI = FUIAuth.defaultAuthUI()
+           // You need to adopt a FUIAuthDelegate protocol to receive callback
+           authUI!.delegate = self
+           
+           let providers: [FUIAuthProvider] = [
+             FUIGoogleAuth(),
+             FUIEmailAuth(),
+             /*FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),*/
+           ]
+           authUI!.providers = providers
+           
+           //Getting the Auth View Controller
+           let authViewController = authUI!.authViewController()
+        return authViewController
+    }
+    
+    
+    
+    func refreshVariables(){
+        if Auth.auth().currentUser?.email != nil || Auth.auth().currentUser?.phoneNumber != nil{
+            UName = Auth.auth().currentUser!.email!
+            UserID = String(Auth.auth().currentUser!.uid)
+            //Sets the name label to include the current user's name
+            Name.text = "Email: \(UName!)"
+            UID.text = "User ID: \(UserID!)"
+        } else {
+            print("User not logged in")
+            UName = ""
+            UserID = ""
+            //Sets the name label to include the current user's name
+            Name.text = "Email: None"
+            UID.text = "User ID: None"
+        }
+    }
+    
+    func ShowSignedOut(){
+        let alertController = UIAlertController(title: "Signed Out", message:
+               "You have successfully signed out", preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.refreshVariables()
+        }))
+
+           self.present(alertController, animated: true, completion: nil)
+    }
 
     
 }
