@@ -170,7 +170,7 @@
                     <navigationItem key="navigationItem" id="FN4-YF-Pae">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="TsX-js-Pbv">
                             <connections>
-                                <action selector="AddList:" destination="FEr-Ay-EN1" id="SfG-tx-tFg"/>
+                                <action selector="addList:" destination="FEr-Ay-EN1" id="na6-Ok-Fsf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

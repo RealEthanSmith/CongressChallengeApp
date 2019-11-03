@@ -7,49 +7,45 @@
 //
 
 import Foundation
+import Firebase
 
 var UName:String?
 var UserID:String?
+var UserIsLoggedIn:Bool?
 
-
-
-//We will use this in another file to check if the user is logged in. We'll set the default to "false" just to be safe (we don't want other users accessing other people's content).
-var UserIsLoggedIn = false
-
-
-//Defining parameters to be used in our Array
-struct UserItems{
-    
-    var UserName:String?
-    var UID:Int?
-    var Pass:String?
-    
-}
 
 struct Items {
     
     var ItemName:String?
-    var ItemSubtitle:String?
-    var UID:Int?
+    var key:String?
+    var addedByuser:Int?
     
+}
+
+protocol DocumentSerializable {
+    init? (dictionary:[String:Any])
 }
 
 struct ReminderLists {
     var ListName:String?
-    var UID:Int?
+    var timeStamp:Date?
+    
+    var dictionary:[String:Any] {
+        return [
+            "listName":ListName,
+            "timeStamp":timeStamp
+        ]
+        
+    }
+    
 }
 
-
-
-//Array that defines our list of Users. As we update this by adding new users throught the app, the code won't update so we'll build another way to access our User List. Notice how the parameters defined above are used here when we call our Array...
-
-var ReminderList = [
-
-    ReminderLists(ListName: "Name", UID: 0001)
-    
-]
-
-var UserList = [
-
-    Items(ItemName: "Donate to TeamTrees.org", ItemSubtitle: "donate", UID: 0001)
-]
+extension ReminderLists: DocumentSerializable{
+    init?(dictionary: [String : Any]) {
+        guard let ListName = dictionary["ListName"] as? String,
+            let timeStamp = dictionary["timeStamp"] as? Date else {return nil}
+        
+        ReminderLists.init(ListName: ListName, timeStamp: timeStamp)
+        
+    }
+}

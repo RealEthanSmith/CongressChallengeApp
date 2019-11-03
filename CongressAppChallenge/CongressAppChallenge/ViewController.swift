@@ -14,6 +14,8 @@ var NewUserCreation = true
 
 class ViewController: UIViewController, FUIAuthDelegate, AuthUIDelegate {
 
+    
+    //MARK: viewDidLoad and Setup
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +33,7 @@ class ViewController: UIViewController, FUIAuthDelegate, AuthUIDelegate {
         }
         
         //Checking to see if the user is logged in. By the way, the if statement defaults to true if we don't fill out the rest (if UserLoggedIn = true...)
-        if UserIsLoggedIn {
+        if UserIsLoggedIn! {
             //Running the above code again to update our on-screen data
             UName = (Auth.auth().currentUser?.email)!
             UserID = String(Auth.auth().currentUser!.uid)
@@ -58,7 +60,7 @@ class ViewController: UIViewController, FUIAuthDelegate, AuthUIDelegate {
         }
         
         //Checking to see if the user is logged in. By the way, the if statement defaults to true if we don't fill out the rest (if UserLoggedIn = true...)
-        if UserIsLoggedIn {
+        if UserIsLoggedIn! {
             //Running the above code again to update our on-screen data
             UName = (Auth.auth().currentUser?.email)!
             UserID = String(Auth.auth().currentUser!.uid)
@@ -91,11 +93,9 @@ class ViewController: UIViewController, FUIAuthDelegate, AuthUIDelegate {
     @IBOutlet weak var UID: UILabel!
     
     //Each @IBAction is a method which is called when you press the corresponding buttons
-
+    //MARK: Sending Actions
     @IBAction func NewUser(_ sender: Any) {
-        //Takes the current user to the "New User" page
-        NewUserCreation = true
-        //performSegue(withIdentifier: "SignIn", sender: self)
+        //Shows the current user the Sign In page
         present(SetupAuthUI(), animated: true, completion: nil)
         refreshVariables()
         func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
@@ -104,8 +104,11 @@ class ViewController: UIViewController, FUIAuthDelegate, AuthUIDelegate {
     }
     
     @IBAction func GoToLists(_ sender: Any) {
-        NewUserCreation = true
-        performSegue(withIdentifier: "GoToLists", sender: self)
+        if isSignedIn() == true {
+            performSegue(withIdentifier: "GoToLists", sender: self)
+        } else {
+            throwNotSignedInError()
+        }
     }
 
     @IBAction func SignOutUser(_ sender: Any) {
@@ -137,7 +140,7 @@ class ViewController: UIViewController, FUIAuthDelegate, AuthUIDelegate {
     
     
     
-    
+    //MARK: Functions
     func SetupAuthUI() -> UINavigationController{
         let authUI = FUIAuth.defaultAuthUI()
            // You need to adopt a FUIAuthDelegate protocol to receive callback
@@ -184,6 +187,32 @@ class ViewController: UIViewController, FUIAuthDelegate, AuthUIDelegate {
 
            self.present(alertController, animated: true, completion: nil)
     }
+    
+    func isSignedIn() -> Bool{
+        let email = Auth.auth().currentUser?.email
+        if email != nil {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func throwNotSignedInError(){
+        let alertController = UIAlertController(title: "Not Signed In", message:
+               "You have not signed in yet. Please sign in to proceed to lists.", preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            //Shows the current user the Sign In page
+            self.present(self.SetupAuthUI(), animated: true, completion: nil)
+            self.refreshVariables()
+            func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+              print("Oh No")
+            }
+        }))
+
+           self.present(alertController, animated: true, completion: nil)
+    }
+    
 
     
 }
