@@ -16,9 +16,9 @@ class TableViewController: UITableViewController {
     var DocRef: DocumentReference!
     var db:Firestore!
     var listArray = [ReminderLists]()
+    var list = [lists]()
     var email:String?
     var tableuserid:String?
-    var testList = [Any]
     
     
     override func viewDidLoad() {
@@ -31,15 +31,18 @@ class TableViewController: UITableViewController {
         tableuserid = Auth.auth().currentUser!.uid
         
         db = Firestore.firestore()
+        let listsRef = db.collection("users").document(self.tableuserid!).collection("lists")
         print("hey")
         otherLoadData()
+        print("Done Loading. Listening...")
         checkForUpdates()
 
     }
     
+    //MARK: Loading Items
     func loadData() {
         //Grabs Lists (documents) from Firestore
-        db.collection("users").document(self.tableuserid!).collection("lists").getDocuments(){
+        db.collection("users").document("\(self.tableuserid!)").collection("lists").getDocuments(){
             querySnapshot, error in
             if let error = error{
                 print("Error loading: \(error.localizedDescription)")
@@ -49,15 +52,16 @@ class TableViewController: UITableViewController {
                 DispatchQueue.main.async {
                     print("Here you go!")
                     self.tableView.reloadData()
+                    print(self.listArray)
                 }
             }
         }
     }
     
     func otherLoadData(){
-        let docRef = db.collection("users").document(self.tableuserid!).collection("lists")
+        //let docRef = db.collection("users").document(self.tableuserid!).collection("lists")
 
-        db.collection("users").document(self.tableuserid!).collection("lists")
+        db.collection("users").document("\(self.tableuserid!)").collection("lists")
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -68,6 +72,7 @@ class TableViewController: UITableViewController {
                         DispatchQueue.main.async {
                             print("Here you go!")
                             self.tableView.reloadData()
+                            print(self.listArray)
                         }
                     }
                 }
@@ -75,19 +80,24 @@ class TableViewController: UITableViewController {
     }
     
     func checkForUpdates(){
-        db.collection("users").document(self.tableuserid!).collection("lists").whereField("timeStamp", isGreaterThan: Date()).addSnapshotListener {
+        db.collection("users").document("\(self.tableuserid!)").collection("lists").addSnapshotListener {
             querySnapshot, error in
             
-            guard let snapshot = querySnapshot else {return}
+            guard let collection = querySnapshot else {return}
             
-            snapshot.documentChanges.forEach {
+            collection.documentChanges.forEach {
                 diff in
                 
                 if diff.type == .added {
-                    self.listArray.append(ReminderLists(dictionary: diff.document.data())!)
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                    if diff.document.data().isEmpty == false {
+                        self.listArray.append(ReminderLists(dictionary: diff.document.data())!)
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    } else {
+                        print("Documents Were Empty!")
                     }
+                        
                 }
                 
             }
@@ -95,21 +105,24 @@ class TableViewController: UITableViewController {
     }
     
 //    func defaultCheckForUpdates(){
-//        db.collection("users").document(self.tableuserid!).collection("lists").whereField("timeStamp", isGreaterThan: Date()).addSnapshotListener { querySnapshot, error in
-//            guard let documents = querySnapshot?.documents else {
-//                print("Error fetching documents: \(error!)")
+//        db.collection("users").document(self.tableuserid!).collection("lists").addSnapshotListener { collectionSnapshot, error in
+//            guard let collection = collectionSnapshot else {
+//                print("Error fetching document: \(error!)")
 //                return
 //            }
-//            let data = documents.map { $0["ListName"] }
-//            self.listArray.append(ReminderLists(ListName: data, timeStamp: <#T##Date?#>))
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
+//
+//
+//
+//
+//            let source = collection.metadata.hasPendingWrites ? "Local" : "Server"
+//            print("\(source) data: \(collection.data() ?? [:])")
+//            self.listArray.append(ReminderLists(dictionary: collection.data)!)
 //        }
+//
 //    }
     
     
-     
+     //MARK: Adding Items
     @IBAction func addList(_ sender: Any) {
         let alert = UIAlertController(title: "List Name", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -155,9 +168,9 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
 
-        let list = listArray[indexPath.row]
+        let listData = listArray[indexPath.row]
         
-        cell.textLabel?.text = "\(list.ListName) hey"
+        cell.textLabel?.text = "\(listData.ListName)"
 
         return cell
     }

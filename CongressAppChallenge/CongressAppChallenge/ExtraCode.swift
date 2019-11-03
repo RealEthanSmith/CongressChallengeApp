@@ -49,3 +49,13 @@ extension ReminderLists: DocumentSerializable{
         
     }
 }
+
+
+
+
+
+struct lists {
+    
+    var ListNames:String?
+    
+}
