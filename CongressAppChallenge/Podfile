@@ -12,13 +12,6 @@ target 'CongressAppChallenge' do
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Google'
   pod 'FirebaseUI/Phone'
-
-  pod 'Pushbots'
-  
-  #Extra for PushBots
-target 'PushbotsNSExtension' do
-  pod 'Pushbots', '>= 2.4.4'
-end
     
   target 'CongressAppChallengeTests' do
     inherit! :search_paths

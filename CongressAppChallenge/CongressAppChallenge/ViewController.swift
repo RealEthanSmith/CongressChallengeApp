@@ -27,9 +27,10 @@ class ViewController: UIViewController, FUIAuthDelegate, AuthUIDelegate {
         
         if Auth.auth().currentUser?.email != nil{
             UserIsLoggedIn = true
-            Name.text = "Hey"
+            Name.text = "Hey User!"
         } else {
-            print("Nope")
+            UserIsLoggedIn = false
+            print("Please Log In to What's Due")
         }
         
         //Checking to see if the user is logged in. By the way, the if statement defaults to true if we don't fill out the rest (if UserLoggedIn = true...)

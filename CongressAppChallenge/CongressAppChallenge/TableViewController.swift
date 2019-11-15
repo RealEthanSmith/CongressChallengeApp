@@ -19,6 +19,7 @@ class TableViewController: UITableViewController {
     var list = [lists]()
     var email:String?
     var tableuserid:String?
+    var AuthString:String? //Testing this for later. NOT YET IMPLEMENTED
     
     
     override func viewDidLoad() {
@@ -29,55 +30,62 @@ class TableViewController: UITableViewController {
         
         email = (Auth.auth().currentUser?.email!)!
         tableuserid = Auth.auth().currentUser!.uid
+        AuthString = "\(email!)-\(tableuserid!)" //Testing this for later. NOT YET IMPLEMENTED
         
         db = Firestore.firestore()
-        let listsRef = db.collection("users").document(self.tableuserid!).collection("lists")
+        //let listsRef = db.collection("users").document(self.tableuserid!).collection("lists")
         print("hey")
-        otherLoadData()
+        listArray.removeAll()
+        print(listArray)
+        //LoadData()
         print("Done Loading. Listening...")
         checkForUpdates()
 
     }
     
     //MARK: Loading Items
-    func loadData() {
-        //Grabs Lists (documents) from Firestore
-        db.collection("users").document("\(self.tableuserid!)").collection("lists").getDocuments(){
-            querySnapshot, error in
-            if let error = error{
-                print("Error loading: \(error.localizedDescription)")
-            } else {
-                print("Getting Documents")
-                self.listArray = querySnapshot!.documents.compactMap({ReminderLists(dictionary: $0.data())})
-                DispatchQueue.main.async {
-                    print("Here you go!")
-                    self.tableView.reloadData()
-                    print(self.listArray)
-                }
-            }
-        }
-    }
     
-    func otherLoadData(){
-        //let docRef = db.collection("users").document(self.tableuserid!).collection("lists")
-
-        db.collection("users").document("\(self.tableuserid!)").collection("lists")
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        print("\(document.documentID) => \(document.data())")
-                        self.listArray = querySnapshot!.documents.compactMap({ReminderLists(dictionary: $0.data())})
-                        DispatchQueue.main.async {
-                            print("Here you go!")
-                            self.tableView.reloadData()
-                            print(self.listArray)
-                        }
-                    }
-                }
-        }
-    }
+    
+    
+    
+//    func LoadData(){
+//        //let docRef = db.collection("users").document(self.tableuserid!).collection("lists")
+//
+//        db.collection("users").document("\(self.tableuserid!)").collection("lists")
+//            .getDocuments() { (querySnapshot, err) in
+//                if let err = err {
+//                    print("Error getting documents: \(err)")
+//                } else {
+//
+//                    for document in querySnapshot!.documents {
+//                        print("\(document.documentID) => \(document.data())")
+//
+//                        let property = (document.get("listName") as! String?)!
+//                        let formattedProperty = ReminderLists(listName: property)
+//                        print("\n\n Print: \( formattedProperty ) \n\n")
+//
+//                        let list = self.listArray
+//                        if let sameItem = list.first(where: { $0.listName == formattedProperty.listName }) {
+//
+//                            print("That already exists")
+//                            self.listArray.append(formattedProperty)
+//
+//                        } else {
+//                            self.listArray.append(formattedProperty)
+//                        }
+//
+//                        DispatchQueue.main.async {
+//                            print("Here you go!")
+//                            self.tableView.reloadData()
+//                            print(self.listArray)
+//                        }
+//                    //}
+//                }
+//        }
+//    }
+//    }
+    
+    
     
     func checkForUpdates(){
         db.collection("users").document("\(self.tableuserid!)").collection("lists").addSnapshotListener {
@@ -85,41 +93,64 @@ class TableViewController: UITableViewController {
             
             guard let collection = querySnapshot else {return}
             
+//            for document in querySnapshot!.documents {
+//                let property = (document.get("listName") as! String?)!
+//                let formattedProperty = ReminderLists(listName: property)
+//                print("\n\n Print: \( formattedProperty ) \n\n")
+//
+//                self.listArray.append(formattedProperty)
+//
+//                DispatchQueue.main.async {
+//                    print("Here you go!")
+//                    self.tableView.reloadData()
+//                    print(self.listArray)
+//                }
+//            }
+            
             collection.documentChanges.forEach {
                 diff in
-                
+
                 if diff.type == .added {
-                    if diff.document.data().isEmpty == false {
-                        self.listArray.append(ReminderLists(dictionary: diff.document.data())!)
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
+                    let property = (diff.document.get("listName") as! String?)!
+                    let formattedProperty = ReminderLists(listName: property)
+                    print("\n\n Print: \( formattedProperty ) \n\n")
+                                           
+                    let list = self.listArray
+                    if let sameItem = list.first(where: { $0.listName == formattedProperty.listName }) {
+                                               
+                            print("\(sameItem) already exists")
+                                               
+                        } else {
+                            self.listArray.append(formattedProperty)
+                            print("\(formattedProperty.listName) Added")
                         }
-                    } else {
-                        print("Documents Were Empty!")
+                                           
+                    DispatchQueue.main.async {
+                        print("Here you go!")
+                        self.tableView.reloadData()
+                        print(self.listArray)
                     }
-                        
+
+                } else {
+                    print("Documents Were Empty/Deleted")
+                    
+                    if diff.type == .removed {
+                        self.listArray.removeAll()
+                        self.checkForUpdates()
+                    }
+                    
+                    if diff.type == .modified {
+                        self.listArray.removeAll()
+                        self.checkForUpdates()
+                    }
+                     
                 }
+            }
                 
             }
         }
-    }
     
-//    func defaultCheckForUpdates(){
-//        db.collection("users").document(self.tableuserid!).collection("lists").addSnapshotListener { collectionSnapshot, error in
-//            guard let collection = collectionSnapshot else {
-//                print("Error fetching document: \(error!)")
-//                return
-//            }
-//
-//
-//
-//
-//            let source = collection.metadata.hasPendingWrites ? "Local" : "Server"
-//            print("\(source) data: \(collection.data() ?? [:])")
-//            self.listArray.append(ReminderLists(dictionary: collection.data)!)
-//        }
-//
-//    }
+    
     
     
      //MARK: Adding Items
@@ -132,9 +163,10 @@ class TableViewController: UITableViewController {
         })
 
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            guard let ListName = alert.textFields?.first?.text!, !ListName.isEmpty else {return}
+            guard let NameOfList = alert.textFields?.first?.text!, !NameOfList.isEmpty else {return}
             
-            let NewList = ReminderLists(ListName: ListName, timeStamp: Date())
+            let NewList = ReminderLists(listName: NameOfList)
+            print("\n\n\n\(NewList)\n\n\n\(NewList.dictionary)\n\n\n")
             var ref:DocumentReference? = nil
             ref = self.db.collection("users").document("\(self.tableuserid!)").collection("lists").addDocument(data: NewList.dictionary){
                 error in
@@ -145,7 +177,7 @@ class TableViewController: UITableViewController {
                 }
             }
             
-            self.loadData()
+            self.checkForUpdates()
             
         }))
 
@@ -169,8 +201,9 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
 
         let listData = listArray[indexPath.row]
+        let errorText = "Error fetching list"
         
-        cell.textLabel?.text = "\(listData.ListName)"
+        cell.textLabel?.text = "\(listData.listName ?? errorText)"
 
         return cell
     }
@@ -179,12 +212,43 @@ class TableViewController: UITableViewController {
 
     
     // Override to support editing the table view.
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            let listRef = db.collection("users").document("\(self.tableuserid!)").collection("lists")
+            
+            listRef.getDocuments { (snapshotDocuments, err) in
+                if let err = err{
+                    print("Uh Oh. Can't Delete: \(err)")
+                }
+                
+                let toDelete = self.listArray[indexPath.row].listName
+            
+                
+                for document in snapshotDocuments!.documents{
+                    
+                    let property = (document.get("listName") as! String?)!
+                    let formattedProperty = ReminderLists(listName: property)
+                    
+                    if formattedProperty.listName == toDelete {
+                        self.db.collection("users").document("\(self.tableuserid!)").collection("lists").document(document.documentID).delete()
+                        self.listArray.removeAll()
+                        self.checkForUpdates()
+                    }
+                }
+                
+                
+                
+            }
+            
+       
+            
+            
+        
         }
     }
+ 
     
 
     /*

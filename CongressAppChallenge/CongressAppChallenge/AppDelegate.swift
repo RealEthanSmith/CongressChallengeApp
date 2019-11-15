@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseUI
 import GoogleSignIn
-import Pushbots
+//import Pushbots
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate{
@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate{
         
         
         //Pushbots Config Code
-        Pushbots.initWithAppId("5db256deb794126e274c2f84", withLaunchOptions: launchOptions)
+        //Pushbots.initWithAppId("5db256deb794126e274c2f84", withLaunchOptions: launchOptions)
         
         return true
     }

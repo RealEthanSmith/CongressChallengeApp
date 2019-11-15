@@ -119,11 +119,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-CongressAppChallenge-PushbotsNSExtension.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-CongressAppChallenge.xcscheme</key>
 		<dict>
 			<key>isShown</key>

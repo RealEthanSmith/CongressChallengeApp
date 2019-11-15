@@ -78,7 +78,6 @@
                                         <state key="normal" title="Go to Lists"/>
                                         <connections>
                                             <action selector="GoToLists:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rG3-og-Emf"/>
-                                            <segue destination="FEr-Ay-EN1" kind="show" identifier="GoToLists" id="oQ1-98-3g2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -113,6 +112,7 @@
                         <outlet property="Name" destination="eeN-Wx-Prz" id="FN8-5p-N7M"/>
                         <outlet property="UID" destination="94Z-79-7Qe" id="koq-z4-KJz"/>
                         <segue destination="VZX-NM-v8P" kind="show" identifier="SignIn" id="dYS-ui-c0I"/>
+                        <segue destination="FEr-Ay-EN1" kind="show" identifier="GoToLists" id="Kse-K3-Iz4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D1276CA72357DB620061B775"
-               BuildableName = "CongressAppChallenge.app"
+               BuildableName = "Whats Due.app"
                BlueprintName = "CongressAppChallenge"
                ReferencedContainer = "container:CongressAppChallenge.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D1276CA72357DB620061B775"
-            BuildableName = "CongressAppChallenge.app"
+            BuildableName = "Whats Due.app"
             BlueprintName = "CongressAppChallenge"
             ReferencedContainer = "container:CongressAppChallenge.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D1276CA72357DB620061B775"
-            BuildableName = "CongressAppChallenge.app"
+            BuildableName = "Whats Due.app"
             BlueprintName = "CongressAppChallenge"
             ReferencedContainer = "container:CongressAppChallenge.xcodeproj">
          </BuildableReference>
