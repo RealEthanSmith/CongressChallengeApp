@@ -19,6 +19,8 @@ class ViewController: UIViewController, FUIAuthDelegate, AuthUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UID.isHidden = true
+        
         UName = ""
         UserID = ""
         //Sets the name label to include the current user's name

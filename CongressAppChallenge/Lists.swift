@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import Firebase
 
+var currentListId = ""
+
 
 class TableViewController: UITableViewController {
 
@@ -47,65 +49,11 @@ class TableViewController: UITableViewController {
     
     
     
-    
-//    func LoadData(){
-//        //let docRef = db.collection("users").document(self.tableuserid!).collection("lists")
-//
-//        db.collection("users").document("\(self.tableuserid!)").collection("lists")
-//            .getDocuments() { (querySnapshot, err) in
-//                if let err = err {
-//                    print("Error getting documents: \(err)")
-//                } else {
-//
-//                    for document in querySnapshot!.documents {
-//                        print("\(document.documentID) => \(document.data())")
-//
-//                        let property = (document.get("listName") as! String?)!
-//                        let formattedProperty = ReminderLists(listName: property)
-//                        print("\n\n Print: \( formattedProperty ) \n\n")
-//
-//                        let list = self.listArray
-//                        if let sameItem = list.first(where: { $0.listName == formattedProperty.listName }) {
-//
-//                            print("That already exists")
-//                            self.listArray.append(formattedProperty)
-//
-//                        } else {
-//                            self.listArray.append(formattedProperty)
-//                        }
-//
-//                        DispatchQueue.main.async {
-//                            print("Here you go!")
-//                            self.tableView.reloadData()
-//                            print(self.listArray)
-//                        }
-//                    //}
-//                }
-//        }
-//    }
-//    }
-    
-    
-    
     func checkForUpdates(){
         db.collection("users").document("\(self.tableuserid!)").collection("lists").addSnapshotListener {
             querySnapshot, error in
             
             guard let collection = querySnapshot else {return}
-            
-//            for document in querySnapshot!.documents {
-//                let property = (document.get("listName") as! String?)!
-//                let formattedProperty = ReminderLists(listName: property)
-//                print("\n\n Print: \( formattedProperty ) \n\n")
-//
-//                self.listArray.append(formattedProperty)
-//
-//                DispatchQueue.main.async {
-//                    print("Here you go!")
-//                    self.tableView.reloadData()
-//                    print(self.listArray)
-//                }
-//            }
             
             collection.documentChanges.forEach {
                 diff in
@@ -209,9 +157,14 @@ class TableViewController: UITableViewController {
     }
     
 
+   
+    
+    
+    
+    
 
     
-    // Override to support editing the table view.
+    // Override to support editing/deleting the table view.
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -232,21 +185,65 @@ class TableViewController: UITableViewController {
                     let formattedProperty = ReminderLists(listName: property)
                     
                     if formattedProperty.listName == toDelete {
+                        
+                        if self.db.collection("users").document("\(self.tableuserid!)").collection("lists").document(document.documentID).collection("Items") != nil{
+                            
+                            let items = self.db.collection("users").document("\(self.tableuserid!)").collection("lists").document(document.documentID).collection("Items")
+                            items.getDocuments { (itemsDocuments, err) in
+                            if let err = err{
+                                print("Uh Oh. Can't Delete: \(err)")
+                            }
+                            for document in snapshotDocuments!.documents{
+                                items.document(document.documentID).delete()
+                                self.listArray.removeAll()
+                                self.checkForUpdates()
+                                }
+                            }
+                    
                         self.db.collection("users").document("\(self.tableuserid!)").collection("lists").document(document.documentID).delete()
-                        self.listArray.removeAll()
-                        self.checkForUpdates()
+                            self.listArray.removeAll()
+                            self.checkForUpdates()
+                            
+                        } else {
+                        self.db.collection("users").document("\(self.tableuserid!)").collection("lists").document(document.documentID).delete()
+                            self.listArray.removeAll()
+                            self.checkForUpdates()
+                        }
+                        
                     }
                 }
-                
-                
-                
+                self.checkForUpdates()
+            }
+        }
+        self.checkForUpdates()
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedList = indexPath.row
+        
+        let listRef = db.collection("users").document("\(self.tableuserid!)").collection("lists")
+        
+        listRef.getDocuments { (snapshotDocuments, err) in
+            if let err = err{
+                print("Uh Oh. Can't Delete: \(err)")
             }
             
-       
-            
-            
+            let toSelect = self.listArray[indexPath.row].listName
         
+            
+            for document in snapshotDocuments!.documents{
+                
+                let property = (document.get("listName") as! String?)!
+                let formattedProperty = ReminderLists(listName: property)
+                
+                if formattedProperty.listName == toSelect {
+                    currentListId = document.documentID
+                    self.performSegue(withIdentifier: "sublists", sender: self)
+                }
+            }
         }
+        
     }
  
     
@@ -256,7 +253,8 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
     }
-    */
+ */
+    
 
     
     // Override to support conditional rearranging of the table view.
@@ -264,6 +262,7 @@ class TableViewController: UITableViewController {
         // Return false if you do not want the item to be re-orderable.
         return false
     }
+    
     
     
     
