@@ -96,12 +96,13 @@ class ViewController: UIViewController, FUIAuthDelegate, AuthUIDelegate {
     @IBOutlet weak var UID: UILabel!
     
     //Each @IBAction is a method which is called when you press the corresponding buttons
-    //MARK: Sending Actions
+    //MARK: Button Actions
     @IBAction func NewUser(_ sender: Any) {
         //Shows the current user the Sign In page
         present(SetupAuthUI(), animated: true, completion: nil)
         refreshVariables()
         func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+            //Checks if an error occured. If there was an error, the code below runs
           print("Oh No")
         }
     }

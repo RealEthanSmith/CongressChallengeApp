@@ -21,7 +21,6 @@
 		D1276CDC2357E0A50061B775 /* ExtraCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1276CDB2357E0A50061B775 /* ExtraCode.swift */; };
 		D19ABD272362813B00859D18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D19ABD262362813B00859D18 /* GoogleService-Info.plist */; };
 		D1D2EDE8236BD94F006A78F3 /* Lists.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D2EDE7236BD94F006A78F3 /* Lists.swift */; };
-		D1D2EDEA236BDC50006A78F3 /* FirebaseUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D2EDE9236BDC50006A78F3 /* FirebaseUI.swift */; };
 		D1E4409D23838BD100658F2D /* SubLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4409C23838BD100658F2D /* SubLists.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +67,6 @@
 		D12D3BB12362944E00B93C62 /* PushbotsNSExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PushbotsNSExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19ABD262362813B00859D18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1D2EDE7236BD94F006A78F3 /* Lists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lists.swift; sourceTree = "<group>"; };
-		D1D2EDE9236BDC50006A78F3 /* FirebaseUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUI.swift; sourceTree = "<group>"; };
 		D1E4409C23838BD100658F2D /* SubLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubLists.swift; sourceTree = "<group>"; };
 		DF4E06F106EF54F03E9C21D9 /* Pods_CongressAppChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CongressAppChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8614B2D47BCFEFD19D0B9FD /* Pods_CongressAppChallenge_PushbotsNSExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CongressAppChallenge_PushbotsNSExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,7 +164,6 @@
 				D1276CAD2357DB620061B775 /* SceneDelegate.swift */,
 				D1276CAF2357DB620061B775 /* ViewController.swift */,
 				D1E4409E23838BE900658F2D /* Lists */,
-				D1D2EDE9236BDC50006A78F3 /* FirebaseUI.swift */,
 				D1276CDB2357E0A50061B775 /* ExtraCode.swift */,
 				D1276CB12357DB620061B775 /* Main.storyboard */,
 				D1276CB42357DB690061B775 /* Assets.xcassets */,
@@ -499,7 +496,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1D2EDEA236BDC50006A78F3 /* FirebaseUI.swift in Sources */,
 				D1276CB02357DB620061B775 /* ViewController.swift in Sources */,
 				D1E4409D23838BD100658F2D /* SubLists.swift in Sources */,
 				D1276CDC2357E0A50061B775 /* ExtraCode.swift in Sources */,

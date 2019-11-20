@@ -30,25 +30,48 @@ class TableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        email = (Auth.auth().currentUser?.email!)!
-        tableuserid = Auth.auth().currentUser!.uid
-        AuthString = "\(email!)-\(tableuserid!)" //Testing this for later. NOT YET IMPLEMENTED
+        if Auth.auth().currentUser?.uid == nil{
+            YouAreNotSignedIn()
+        } else {
+            email = (Auth.auth().currentUser?.email!)!
+            tableuserid = Auth.auth().currentUser!.uid
+            AuthString = "\(email!)-\(tableuserid!)" //^^^NOT YET IMPLEMENTED^^^
+            
+            
+            db = Firestore.firestore()
+                   //let listsRef = db.collection("users").document(self.tableuserid!).collection("lists")
+                   print("hey")
+                   listArray.removeAll()
+                   print(listArray)
+                   //LoadData()
+                   print("Done Loading. Listening...")
+                   checkForUpdates()
+        }
         
-        db = Firestore.firestore()
-        //let listsRef = db.collection("users").document(self.tableuserid!).collection("lists")
-        print("hey")
-        listArray.removeAll()
-        print(listArray)
-        //LoadData()
-        print("Done Loading. Listening...")
-        checkForUpdates()
-
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:  #selector(refreshTable), for: .valueChanged)
+        self.refreshControl = refreshControl
     }
     
+    
+    
+    //MARK: Extra Setup
+    @IBAction func profilePressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "GoToProfile", sender: self)
+    }
+    
+    @objc func refreshTable() {
+        checkForUpdates()
+        tableView.reloadData()
+        refreshControl?.endRefreshing()
+    }
+    
+    
+    
+    
+    
+    
     //MARK: Loading Items
-    
-    
-    
     func checkForUpdates(){
         db.collection("users").document("\(self.tableuserid!)").collection("lists").addSnapshotListener {
             querySnapshot, error in
@@ -197,25 +220,34 @@ class TableViewController: UITableViewController {
                                 items.document(document.documentID).delete()
                                 self.listArray.removeAll()
                                 self.checkForUpdates()
+                                tableView.reloadData()
                                 }
                             }
                     
                         self.db.collection("users").document("\(self.tableuserid!)").collection("lists").document(document.documentID).delete()
                             self.listArray.removeAll()
                             self.checkForUpdates()
+                            tableView.reloadData()
                             
                         } else {
                         self.db.collection("users").document("\(self.tableuserid!)").collection("lists").document(document.documentID).delete()
                             self.listArray.removeAll()
                             self.checkForUpdates()
+                            tableView.reloadData()
                         }
                         
                     }
                 }
                 self.checkForUpdates()
+                tableView.reloadData()
             }
+            self.checkForUpdates()
+            tableView.reloadData()
         }
+        
         self.checkForUpdates()
+        tableView.reloadData()
+        //More editing styles
     }
     
     
@@ -264,7 +296,17 @@ class TableViewController: UITableViewController {
     }
     
     
-    
+    //MARK: Extra Functions
+    func YouAreNotSignedIn(){
+        let alertController = UIAlertController(title: "Not Signed In", message:
+               "Please sign in by clicking the button below", preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "Sign-In", style: .default, handler: { action in
+            self.performSegue(withIdentifier: "GoToProfile", sender: self)
+        }))
+
+           self.present(alertController, animated: true, completion: nil)
+    }
     
     
     
