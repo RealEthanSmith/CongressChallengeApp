@@ -220,7 +220,6 @@
         <image name="person.circle" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dw9-lJ-dXy"/>
         <segue reference="Kse-K3-Iz4"/>
     </inferredMetricsTieBreakers>
 </document>

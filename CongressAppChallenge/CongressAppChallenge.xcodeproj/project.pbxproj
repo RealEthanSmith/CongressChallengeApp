@@ -48,7 +48,6 @@
 		99B9A2864039BD663A5AF4D1 /* Pods_CongressAppChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CongressAppChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E381CB90F96135DC9CCA72 /* Pods-CongressAppChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CongressAppChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-CongressAppChallenge/Pods-CongressAppChallenge.release.xcconfig"; sourceTree = "<group>"; };
 		9B7C4F35A697B2FCE585FDA1 /* Pods_CongressAppChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CongressAppChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D101365B2362909F00BBAE7C /* CongressAppChallenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CongressAppChallenge.entitlements; sourceTree = "<group>"; };
 		D1276CA82357DB620061B775 /* Whats Due.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Whats Due.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1276CAB2357DB620061B775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1276CAD2357DB620061B775 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,9 +64,10 @@
 		D1276CCF2357DB690061B775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1276CDB2357E0A50061B775 /* ExtraCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraCode.swift; sourceTree = "<group>"; };
 		D12D3BB12362944E00B93C62 /* PushbotsNSExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PushbotsNSExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1632A4A238DDFE6009FFE15 /* Whats Due.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Whats Due.entitlements"; sourceTree = "<group>"; };
 		D19ABD262362813B00859D18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D1D2EDE7236BD94F006A78F3 /* Lists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lists.swift; sourceTree = "<group>"; };
-		D1E4409C23838BD100658F2D /* SubLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubLists.swift; sourceTree = "<group>"; };
+		D1D2EDE7236BD94F006A78F3 /* Lists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Lists.swift; path = CongressAppChallenge/Lists.swift; sourceTree = "<group>"; };
+		D1E4409C23838BD100658F2D /* SubLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubLists.swift; path = CongressAppChallenge/SubLists.swift; sourceTree = "<group>"; };
 		DF4E06F106EF54F03E9C21D9 /* Pods_CongressAppChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CongressAppChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8614B2D47BCFEFD19D0B9FD /* Pods_CongressAppChallenge_PushbotsNSExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CongressAppChallenge_PushbotsNSExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81146204B4CD709BD962715 /* Pods-CongressAppChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CongressAppChallengeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CongressAppChallengeTests/Pods-CongressAppChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		D1276CAA2357DB620061B775 /* CongressAppChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				D101365B2362909F00BBAE7C /* CongressAppChallenge.entitlements */,
+				D1632A4A238DDFE6009FFE15 /* Whats Due.entitlements */,
 				D1276CAB2357DB620061B775 /* AppDelegate.swift */,
 				D1276CAD2357DB620061B775 /* SceneDelegate.swift */,
 				D1276CAF2357DB620061B775 /* ViewController.swift */,
@@ -685,17 +685,19 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CongressAppChallenge/CongressAppChallenge.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "CongressAppChallenge/Whats Due.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = M9D5379H93;
 				INFOPLIST_FILE = CongressAppChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.onpointech.WhatsDue;
+				PRODUCT_BUNDLE_IDENTIFIER = com.onpointech.whatisdue;
 				PRODUCT_NAME = "Whats Due";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -707,17 +709,19 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CongressAppChallenge/CongressAppChallenge.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "CongressAppChallenge/Whats Due.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = M9D5379H93;
 				INFOPLIST_FILE = CongressAppChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.onpointech.WhatsDue;
+				PRODUCT_BUNDLE_IDENTIFIER = com.onpointech.whatisdue;
 				PRODUCT_NAME = "Whats Due";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -730,8 +734,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M9D5379H93;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CongressAppChallengeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -741,6 +745,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.onpointech.CongressAppChallengeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CongressAppChallenge.app/CongressAppChallenge";
@@ -754,8 +760,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M9D5379H93;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CongressAppChallengeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -765,6 +771,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.onpointech.CongressAppChallengeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CongressAppChallenge.app/CongressAppChallenge";
@@ -777,8 +785,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M9D5379H93;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CongressAppChallengeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -787,6 +795,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.onpointech.CongressAppChallengeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = CongressAppChallenge;
@@ -799,8 +809,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M9D5379H93;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CongressAppChallengeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -809,6 +819,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.onpointech.CongressAppChallengeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = CongressAppChallenge;
@@ -819,8 +831,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M9D5379H93;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PushbotsNSExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -830,8 +842,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.onpointech.CongressAppChallenge.PushbotsNSExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -839,8 +852,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M9D5379H93;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PushbotsNSExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -850,8 +863,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.onpointech.CongressAppChallenge.PushbotsNSExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

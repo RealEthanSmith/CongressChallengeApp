@@ -120,7 +120,7 @@ class ViewController: UIViewController, FUIAuthDelegate, AuthUIDelegate {
         let authUI = FUIAuth.defaultAuthUI()
         authUI!.delegate = self
         let providers: [FUIAuthProvider] = [
-          FUIGoogleAuth(),
+          //FUIGoogleAuth(),
           FUIEmailAuth(),
           /*FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),*/
         ]
@@ -151,7 +151,7 @@ class ViewController: UIViewController, FUIAuthDelegate, AuthUIDelegate {
            authUI!.delegate = self
            
            let providers: [FUIAuthProvider] = [
-             FUIGoogleAuth(),
+             //FUIGoogleAuth(),
              FUIEmailAuth(),
              /*FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),*/
            ]
